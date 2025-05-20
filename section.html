@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman dengan Grid 2x3</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .horizontal-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    section {
+      flex: 1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #section1 {
+      background-color: #f2f2f2;
+    }
+
+    #section2 {
+      background-color: #e6f7ff;
+      text-align: center;
+    }
+
+    .slider {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 300%;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .nav-buttons button {
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    hr {
+      border: none;
+      height: 3px;
+      background-color: #333;
+      margin: 40px 0;
+    }
+
+    .about-section {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #fafafa;
+    }
+
+    .about-section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .about-section h3 {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Grid 2x3 */
+    .grid-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .grid-item {
+      flex: 1 1 calc(50% - 20px); /* 2 kolom */
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .grid-item h4 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .horizontal-section {
+        flex-direction: column;
+      }
+      .grid-item {
+        flex: 1 1 100%; /* jadi 1 kolom di layar kecil */
+      }
+
+      table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">MyWebsite</div>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <div class="horizontal-section">
+    <section id="section1">
+      <h2>Section 1: Tentang Kami</h2>
+      <p>Ini adalah konten untuk section pertama. Menjelaskan informasi tentang situs atau perusahaan.</p>
+    </section>
+
+    <section id="section2">
+      <h2>Section 2: Gambar Slider</h2>
+
+      <div class="slider">
+        <div class="slides" id="slides">
+          <img src="https://via.placeholder.com/600x300/FF7F7F/333333?text=Gambar+1" alt="Gambar 1">
+          <img src="https://via.placeholder.com/600x300/7FB3FF/333333?text=Gambar+2" alt="Gambar 2">
+          <img src="https://via.placeholder.com/600x300/7FFF7F/333333?text=Gambar+3" alt="Gambar 3">
+        </div>
+        <div class="nav-buttons">
+          <button onclick="prevSlide()">&#10094;</button>
+          <button onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <hr>
+
+  <section class="about-section">
+    <h2>About Me</h2>
+    <h3>A brief introduction about myself</h3>
+  </section>
+
+  <section class="grid-container">
+    <div class="grid-item">
+      <h4>Portofolio</h4>
+      <p>Deskripsi singkat tentang proyek atau karya saya.</p>
+    </div>
+    <div class="grid-item">
+      <h4>Education</h4>
+      <p>Riwayat pendidikan terakhir dan pengalaman akademik.</p>
+    </div>
+    <div class="grid-item">
+      <h4>Pekerjaan</h4>
+      <p>Pengalaman kerja dan posisi yang pernah dijalani.</p>
+    </div>
+    <div class="grid-item">
+      <h4>Contact</h4>
+      <p>Email, nomor HP, atau media sosial untuk dihubungi.</p>
+    </div>
+    <div class="grid-item">
+      <h4>Hobi</h4>
+      <p>Hal-hal yang saya sukai dan lakukan di waktu luang.</p>
+    </div>
+    <div class="grid-item">
+      <h4>Alamat</h4>
+      <p>Tempat tinggal saat ini atau alamat korespondensi.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="section4" style="padding: 40px 20px; background-color: #ffffff;">
+    <h1 style="text-align: center; margin-bottom: 40px;">Portofolio</h1>
+
+    <table style="width: 100%; text-align: center; border-spacing: 20px;">
+      <tr>
+        <td style="vertical-align: top;">
+          <img src="https://via.placeholder.com/200x120.png?text=Project+1" alt="Project 1" style="border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Project Satu</h3>
+          <p>Aplikasi web sederhana untuk manajemen tugas harian.</p>
+        </td>
+        <td style="vertical-align: top;">
+          <img src="https://via.placeholder.com/200x120.png?text=Project+2" alt="Project 2" style="border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Project Dua</h3>
+          <p>Website profil pribadi dengan desain responsif.</p>
+        </td>
+        <td style="vertical-align: top;">
+          <img src="https://via.placeholder.com/200x120.png?text=Project+3" alt="Project 3" style="border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Project Tiga</h3>
+          <p>Dashboard analitik berbasis data menggunakan Chart.js.</p>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById("slides");
+
+    function showSlide(index) {
+      const totalSlides = slides.children.length;
+      if (index >= totalSlides) currentIndex = 0;
+      else if (index < 0) currentIndex = totalSlides - 1;
+      else currentIndex = index;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    setInterval(() => {
+      nextSlide();
+    }, 5000);
+  </script>
+
+</body>
+</html>
