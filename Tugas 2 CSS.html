@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PT. Dinamika Teknik Solusi</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER STANDARD */
+    header {
+      background-color: #0077b6;
+      width: 100%;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* SLIDER */
+    .slider-section {
+      width: 100%;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      position: relative;
+      margin-top: 0;
+    }
+
+    .slider-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 1rem;
+      z-index: 2;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    /* WELCOME SECTION */
+    .welcome-section {
+      background-color: #ffffff;
+      width: 100%;
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .welcome-section h1 {
+      font-size: 2.5rem;
+      color: #0077b6;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .welcome-section .tagline {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .welcome-section .divider {
+      width: 100px;
+      height: 3px;
+      background-color: #0077b6;
+      margin: 0 auto 2rem;
+    }
+
+    .welcome-section .subtagline {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* SERVICES GRID SECTION */
+    .services-section {
+      width: 100%;
+      padding: 4rem 5%;
+      background-color: #f8f9fa;
+    }
+
+    .services-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #0077b6;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .service-caption {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 2rem 5%;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .copyright {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.8rem 5%;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      nav {
+        gap: 0.8rem;
+      }
+
+      .slider-section {
+        height: 50vh;
+        min-height: 300px;
+      }
+
+      .welcome-section h1 {
+        font-size: 2rem;
+      }
+
+      .welcome-section .tagline {
+        font-size: 1.2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">PT. Dinamika Teknik Solusi</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Layanan</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- SLIDER -->
+  <section class="slider-section">
+    <div class="slider-container" id="slider">
+      <div class="slide"><img src="img/faq1.webp" alt="Slide 1"></div>
+      <div class="slide"><img src="img/faq2.webp" alt="Slide 2"></div>
+    </div>
+    <button class="nav-button prev" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-button next" onclick="nextSlide()">&#10095;</button>
+  </section>
+
+  <!-- WELCOME SECTION -->
+  <section class="welcome-section">
+    <h1>Welcome To PT. Dinamika Teknik Solusi</h1>
+    <p class="tagline">Solusi Terlengkap untuk Kebutuhan Teknis Anda.</p>
+    <div class="divider"></div>
+    <p class="subtagline">Memenuhi Setiap Kebutuhan Teknis Anda dengan Keahlian yang Terpercaya</p>
+  </section>
+
+  <!-- SERVICES GRID SECTION -->
+  <section class="services-section">
+    <h2 class="services-title">Layanan Kami</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="img/dts1.webp" alt="Electrical" class="service-img">
+        <div class="service-caption">Electrical</div>
+      </div>
+      <div class="service-item">
+        <img src="img/dts2.webp" alt="Civil Works" class="service-img">
+        <div class="service-caption">Pekerjaan Sipil</div>
+      </div>
+      <div class="service-item">
+        <img src="img/dts3.webp" alt="Computer & Server" class="service-img">
+        <div class="service-caption">Komputer & Server</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <p class="copyright">© 2025 Abdullah Faqih. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Slider Functionality
+    const slider = document.getElementById('slider');
+    let currentIndex = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      const slideCount = slider.children.length;
+      currentIndex = (index + slideCount) % slideCount;
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+      resetInterval();
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+      resetInterval();
+    }
+
+    function startSlider() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startSlider();
+    }
+
+    // Initialize slider
+    slider.parentElement.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    slider.parentElement.addEventListener('mouseleave', startSlider);
+    startSlider();
+  </script>
+
+</body>
+</html>
